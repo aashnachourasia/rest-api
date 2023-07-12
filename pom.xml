@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>expense-api</artifactId>
+	<artifactId>user-info-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>expense-api</name>
 	<description>springboot expense api with MySQL DB</description>

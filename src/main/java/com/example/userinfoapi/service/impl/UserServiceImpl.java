@@ -1,8 +1,9 @@
-package com.example.expenseapi.service.impl;
+package com.example.userinfoapi.service.impl;
 
-import com.example.expenseapi.model.User;
-import com.example.expenseapi.repository.UserRepository;
-import com.example.expenseapi.service.UserService;
+import com.example.userinfoapi.exception.UserNotFoundException;
+import com.example.userinfoapi.model.User;
+import com.example.userinfoapi.repository.UserRepository;
+import com.example.userinfoapi.service.UserService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -39,6 +40,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUser(String userId) {
+        if(userRepository.findById(userId).isEmpty())
+            throw new UserNotFoundException("Requested user does not exist");
         return userRepository.findById(userId).get();
     }
 

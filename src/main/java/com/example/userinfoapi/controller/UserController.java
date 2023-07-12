@@ -1,7 +1,10 @@
-package com.example.expenseapi.controller;
+package com.example.userinfoapi.controller;
 
-import com.example.expenseapi.model.User;
-import com.example.expenseapi.service.UserService;
+import com.example.userinfoapi.model.User;
+import com.example.userinfoapi.response.ResponseHandler;
+import com.example.userinfoapi.service.UserService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -9,20 +12,23 @@ import java.util.List;
 //class responsible to expose all rest apis
 @RestController
 @RequestMapping("/user")
-public class ExpenseApiController
+public class UserController
 {
     //controller layer interating with service layer
     UserService userService;
 
-    public ExpenseApiController(UserService userService) {
+    public UserController(UserService userService) {
         this.userService = userService;
     }
 
     //read specific user detail
     @GetMapping("{userId}")
-    public User getUserDetails(@PathVariable("userId") String userId)
+    public ResponseEntity<Object> getUserDetails(@PathVariable("userId") String userId)
     {
-       return userService.getUser(userId);
+        return ResponseHandler.responseBuilder(
+        "Requested message Details are given here",
+                HttpStatus.OK, userService.getUser(userId));
+
                 //new User("c1","fn","ln","abc@gmail.com");
     }
 

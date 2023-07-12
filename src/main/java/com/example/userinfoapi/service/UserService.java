@@ -1,6 +1,6 @@
-package com.example.expenseapi.service;
+package com.example.userinfoapi.service;
 
-import com.example.expenseapi.model.User;
+import com.example.userinfoapi.model.User;
 
 import java.util.List;
 

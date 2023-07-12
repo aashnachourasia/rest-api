@@ -1,4 +1,4 @@
-package com.example.expenseapi.model;
+package com.example.userinfoapi.model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
